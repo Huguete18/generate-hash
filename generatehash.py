@@ -1,13 +1,16 @@
 import hashlib
-import pyfiglet
 
-ascii_banner = pyfiglet.figlet_format("Hash Generator")
-print(ascii_banner)
+# import pyfiglet
+
+# ascii_banner = pyfiglet.figlet_format("Hash Generator")
+# print(ascii_banner)
+
 
 def generate_hash(message, hash_type):
     hash_object = hashlib.new(hash_type)
     hash_object.update(message.encode())
     return hash_object.hexdigest()
+
 
 print("Algorithms available: MD5 | SHA-1 | SHA-224 | SHA-256 | SHA-384 | SHA-512")
 print("Choose the type of hash you want:")
@@ -25,4 +28,3 @@ message = input("Enter the message to generate the hash: ")
 hash_type = hash_types[option - 1]
 
 print("Hash of the message:", generate_hash(message, hash_type))
-
